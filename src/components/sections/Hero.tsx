@@ -13,7 +13,10 @@ const Hero = () => {
     <section className="h-screen w-full bg-[#1a1a1a]">
       <div>
         <Navbar setHoverStates={setHoverStates} hoverStates={hoverStates} />
-        <NavbarStoreContent isHovered={hoverStates[0]} />
+        <NavbarStoreContent
+          setHoverStates={setHoverStates}
+          hoverStates={hoverStates}
+        />
       </div>
       <div
         className={`transition-all duration-500 ${

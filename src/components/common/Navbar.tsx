@@ -11,20 +11,18 @@ type NavbarProps = {
 const Navbar: React.FC<NavbarProps> = ({ setHoverStates, hoverStates }) => {
   const handleMouseEnter = useCallback(
     (index: number) => {
-      const newStates = [...hoverStates];
-      newStates[index] = true;
-      setHoverStates(newStates);
+      if (hoverStates.some((state) => !state)) {
+        const newStates = [...hoverStates];
+        newStates[index] = true;
+        setHoverStates(newStates);
+      }
     },
     [setHoverStates]
   );
-  const handleMouseLeave = useCallback(
-    (index: number) => {
-      const newStates = [...hoverStates];
-      newStates[index] = false;
-      setHoverStates(newStates);
-    },
-    [setHoverStates]
-  );
+
+  const handleIconMouseEnter = useCallback(() => {
+    setHoverStates(new Array(navItems.length).fill(false));
+  }, [setHoverStates]);
 
   return (
     <nav
@@ -33,11 +31,14 @@ const Navbar: React.FC<NavbarProps> = ({ setHoverStates, hoverStates }) => {
       } text-white/80 font-roboto tracking-wider font-light`}
     >
       <div className="w-[64rem] mx-auto px-5 h-11">
-        <ul className="flex justify-between h-full">
-          <li className="h-full grid place-content-center text-xs">
+        <ul className="flex justify-between items-center h-full">
+          <li
+            onMouseEnter={() => handleIconMouseEnter()}
+            className="h-full grid place-content-center text-xs"
+          >
             <Link
               href={"/"}
-              className="text-white/80 hover:text-white transition-colors duration-200 mb-[2px]"
+              className="text-white/80 hover:text-white transition-colors duration-200 mb-[2px] relative z-30"
               aria-label="Go to home page."
             >
               <svg
@@ -64,19 +65,21 @@ const Navbar: React.FC<NavbarProps> = ({ setHoverStates, hoverStates }) => {
             >
               <Link
                 href={item.href}
-                className="text-white/80 hover:text-white transition-colors duration-200"
+                className="text-white/80 hover:text-white transition-colors relative z-30 duration-200"
                 onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={() => handleMouseLeave(index)}
               >
                 {item.content}
               </Link>
             </li>
           ))}
 
-          <li className="h-full grid place-content-center text-xs">
+          <li
+            onMouseEnter={() => handleIconMouseEnter()}
+            className="h-full grid place-content-center text-xs"
+          >
             <Link
               href={"/"}
-              className="text-white/80 hover:text-white transition-colors duration-200"
+              className="text-white/80 hover:text-white transition-colors duration-200 relative z-30"
               aria-label="Search"
             >
               <svg
@@ -96,10 +99,13 @@ const Navbar: React.FC<NavbarProps> = ({ setHoverStates, hoverStates }) => {
               </svg>
             </Link>
           </li>
-          <li className="h-full grid place-content-center text-xs">
+          <li
+            onMouseEnter={() => handleIconMouseEnter()}
+            className="h-full grid place-content-center text-xs"
+          >
             <Link
               href={"/"}
-              className="text-white/80 hover:text-white transition-colors duration-200 mb-[1px]"
+              className="text-white/80 hover:text-white transition-colors duration-200 mb-[1px]  relative z-30"
               aria-label="Open shopping cart"
             >
               <svg
