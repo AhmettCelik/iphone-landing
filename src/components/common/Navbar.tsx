@@ -27,13 +27,17 @@ const Navbar: React.FC<NavbarProps> = ({ setHoverStates, hoverStates }) => {
   );
 
   return (
-    <nav className="w-full bg-black text-white/80 font-roboto tracking-wider font-light">
-      <div className="h-11">
+    <nav
+      className={`w-full bg-black ${
+        hoverStates.some((state) => state) ? "navbar-open" : "navbar-close"
+      } text-white/80 font-roboto tracking-wider font-light`}
+    >
+      <div className="w-[64rem] mx-auto px-5 h-11">
         <ul className="flex justify-between h-full">
           <li className="h-full grid place-content-center text-xs">
             <Link
               href={"/"}
-              className="text-white/80 hover:text-white transition-colors duration-200"
+              className="text-white/80 hover:text-white transition-colors duration-200 mb-[2px]"
               aria-label="Go to home page."
             >
               <svg
@@ -95,7 +99,7 @@ const Navbar: React.FC<NavbarProps> = ({ setHoverStates, hoverStates }) => {
           <li className="h-full grid place-content-center text-xs">
             <Link
               href={"/"}
-              className="text-white/80 hover:text-white transition-colors duration-200"
+              className="text-white/80 hover:text-white transition-colors duration-200 mb-[1px]"
               aria-label="Open shopping cart"
             >
               <svg

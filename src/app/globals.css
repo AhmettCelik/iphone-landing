@@ -30,25 +30,126 @@ svg:hover {
 @keyframes slideDown {
   from {
     height: 0;
+    opacity: 0.7;
   }
   to {
     height: 100%;
+    opacity: 1;
   }
 }
 
 @keyframes slideUp {
   from {
     height: 100%;
+    opacity: 1;
   }
   to {
     height: 0;
+    opacity: 0.2;
   }
 }
 
-.openNavbarItem {
+.open-navbar-item {
   animation: slideDown 0.5s forwards;
 }
 
-.closeNavbarItem {
+.close-navbar-item {
   animation: slideUp 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar-ul > * {
+  opacity: 0;
+  animation: fadeIn 0.1s forwards;
+}
+
+.navbar-ul > *:nth-child(1) {
+  animation-delay: 0.15s;
+}
+.navbar-ul > *:nth-child(2) {
+  animation-delay: 0.17s;
+}
+.navbar-ul > *:nth-child(3) {
+  animation-delay: 0.19s;
+}
+.navbar-ul > *:nth-child(4) {
+  animation-delay: 0.21s;
+}
+.navbar-ul > *:nth-child(5) {
+  animation-delay: 0.23s;
+}
+.navbar-ul > *:nth-child(6) {
+  animation-delay: 0.25s;
+}
+.navbar-ul > *:nth-child(7) {
+  animation-delay: 0.27s;
+}
+
+@keyframes openDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes closeUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.navbar-dropdown-open div {
+  animation: openDown 0.2s forwards;
+}
+
+.navbar-dropdown-close div {
+  animation: closeUp 0.2s 0.03s forwards;
+}
+
+@keyframes changeNavColor {
+  0% {
+    background-color: black;
+  }
+  100% {
+    background-color: #161617;
+  }
+}
+
+@keyframes backNavColor {
+  0% {
+    background-color: #161617;
+  }
+  100% {
+    background-color: black;
+  }
+}
+
+.navbar-open {
+  animation: changeNavColor 0.2s;
+  animation-fill-mode: forwards;
+}
+
+.navbar-close {
+  animation: backNavColor 0.3s;
+  animation-delay: 0.2s;
+  animation-fill-mode: backwards;
 }
