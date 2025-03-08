@@ -1,39 +1,54 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 
 @theme {
-  --color-primary: #050816;
-  --color-secondary: #aaa6c3;
-  --color-tertiary: #151030;
+  --color-primary: #161617;
+  --color-secondary: #86868b;
+  --color-tertiary: #e8e8ed;
   --color-black-100: #100d25;
   --color-black-200: #090325;
   --color-white-100: #f3f3f3;
 
+  --breakpoint-laptop: 1441px;
+  --breakpoint-smlaptop: 1069px;
+  --breakpoint-tablet: 735px;
+  --breakpoint-mobile: 481px;
   --breakpoint-min: 320px;
+
+  --font-roboto: var(--font-roboto);
+  --font-open: var(--font-open-sans);
 }
 
-body {
-  background: #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
+svg {
+  transition: fill-opacity 0.2s;
+  fill-opacity: 0.8;
 }
 
-.grainy_text_container {
-  position: relative;
+svg:hover {
+  fill-opacity: 1;
 }
 
-.grainy_text {
-  font-family: "Anton", sans-serif;
-  font-size: 100px;
-  color: white;
-  position: relative;
-  text-transform: uppercase;
-  background: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  filter: contrast(1.5) brightness(1.2);
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 0;
+  }
+}
+
+.openNavbarItem {
+  animation: slideDown 0.5s forwards;
+}
+
+.closeNavbarItem {
+  animation: slideUp 0.5s forwards;
 }
