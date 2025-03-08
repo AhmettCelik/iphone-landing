@@ -149,3 +149,122 @@ export const navStoreSpecialItems: NavItem[] = [
     content: "Government",
   },
 ];
+
+export const navMacExploreItems: NavItem[] = [
+  {
+    id: "1",
+    href: "/",
+    content: "Explore All Mac",
+  },
+  {
+    id: "2",
+    href: "/",
+    content: "MacBook Air",
+  },
+  {
+    id: "3",
+    href: "/",
+    content: "MacBook Pro",
+  },
+  {
+    id: "4",
+    href: "/",
+    content: "iMac",
+  },
+  {
+    id: "5",
+    href: "/",
+    content: "Mac mini",
+  },
+  {
+    id: "6",
+    href: "/",
+    content: "Mac Studio",
+  },
+  {
+    id: "7",
+    href: "/",
+    content: "Mac Pro",
+  },
+  {
+    id: "8",
+    href: "/",
+    content: "Displays",
+  },
+];
+
+export const navMacShopItems: NavItem[] = [
+  {
+    id: "1",
+    href: "/",
+    content: "Explore All Mac",
+  },
+  {
+    id: "2",
+    href: "/",
+    content: "MacBook Air",
+  },
+  {
+    id: "3",
+    href: "/",
+    content: "MacBook Pro",
+  },
+  {
+    id: "4",
+    href: "/",
+    content: "iMac",
+  },
+  {
+    id: "5",
+    href: "/",
+    content: "Mac mini",
+  },
+];
+
+export const navMacMoreItems: NavItem[] = [
+  {
+    id: "1",
+    href: "/",
+    content: "Mac Support",
+  },
+  {
+    id: "2",
+    href: "/",
+    content: "AppleCare+ for Mac",
+  },
+  {
+    id: "3",
+    href: "/",
+    content: "macOS Sequoia",
+  },
+  {
+    id: "4",
+    href: "/",
+    content: "Apple Intelligence",
+  },
+  {
+    id: "5",
+    href: "/",
+    content: "Apps by Apple",
+  },
+  {
+    id: "6",
+    href: "/",
+    content: "Continuity",
+  },
+  {
+    id: "7",
+    href: "/",
+    content: "iCloud+",
+  },
+  {
+    id: "8",
+    href: "/",
+    content: "Mac for Business",
+  },
+  {
+    id: "9",
+    href: "/",
+    content: "Education",
+  },
+];

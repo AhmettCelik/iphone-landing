@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Navbar from "../common/Navbar";
-import NavbarStoreContent from "../common/navbar/NavbarStoreContent";
+import NavbarDropdown from "../common/navbar/NavbarDropdown";
 import { navItems } from "@/contents/navbarContent";
 
 const Hero = () => {
@@ -13,7 +13,7 @@ const Hero = () => {
     <section className="h-screen w-full bg-[#1a1a1a]">
       <div>
         <Navbar setHoverStates={setHoverStates} hoverStates={hoverStates} />
-        <NavbarStoreContent
+        <NavbarDropdown
           setHoverStates={setHoverStates}
           hoverStates={hoverStates}
         />

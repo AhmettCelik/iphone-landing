@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { navItems } from "@/contents/navbarContent";
 import { useCallback } from "react";
-import NavbarStoreContent from "./navbar/NavbarStoreContent";
 
 type NavbarProps = {
   hoverStates: boolean[];
@@ -11,17 +10,15 @@ type NavbarProps = {
 const Navbar: React.FC<NavbarProps> = ({ setHoverStates, hoverStates }) => {
   const handleMouseEnter = useCallback(
     (index: number) => {
-      if (hoverStates.some((state) => !state)) {
-        const newStates = [...hoverStates];
-        newStates[index] = true;
-        setHoverStates(newStates);
-      }
+      const newStates = [...hoverStates];
+      newStates[index] = true;
+      setHoverStates(newStates);
     },
     [setHoverStates]
   );
 
   const handleIconMouseEnter = useCallback(() => {
-    setHoverStates(new Array(navItems.length).fill(false));
+    setHoverStates((prevStates) => new Array(prevStates.length).fill(false));
   }, [setHoverStates]);
 
   return (
