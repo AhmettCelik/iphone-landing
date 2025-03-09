@@ -171,6 +171,7 @@ svg:hover {
 .navbar-open {
   animation: changeNavColor 0.2s;
   animation-fill-mode: forwards;
+  animation-delay: 0.25s;
 }
 
 .navbar-close {

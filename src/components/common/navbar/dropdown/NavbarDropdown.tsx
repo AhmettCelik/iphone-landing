@@ -8,6 +8,14 @@ import React, {
 import NavbarStoreSkeleton from "../NavbarStoreSkeleton";
 import NavbarMacContent from "../NavbarMacSkeleton";
 import NavbarIpadSkeleton from "../NavbarIpadSkeleton";
+import NavbarIphoneSkeleton from "../NavbarIphoneSkeleton";
+import NavbarWatchSkeleton from "../NavbarWatchSkeleton";
+import NavbarVisionSkeleton from "../NavbarVisionSkeleton";
+import NavbarAirPodsSkeleton from "../NavbarAirPodsSkeleton";
+import NavbarTVHomeSkeleton from "../NavbarTvHomeSkeleton";
+import NavbarEntertainmentSkeleton from "../NavbarEntertainmentSkeleton";
+import NavbarAccessoriesSkeleton from "../NavbarAccessoriesSkeleton";
+import NavbarSupportSkeleton from "../NavbarSupportSkeleton";
 
 type NavbarDropdown = {
   hoverStates: boolean[];
@@ -29,7 +37,7 @@ const NavbarDropdown: React.FC<NavbarDropdown> = ({
     const timeout = setTimeout(() => {
       if (!contentRef.current) return;
       setHeight(contentRef.current.offsetHeight);
-    }, 230);
+    }, 250);
 
     return () => clearTimeout(timeout);
   }, [hoverStates]);
@@ -75,6 +83,14 @@ const NavbarDropdown: React.FC<NavbarDropdown> = ({
         <NavbarStoreSkeleton isOpen={hoverStates[0]} />
         <NavbarMacContent isOpen={hoverStates[1]} />
         <NavbarIpadSkeleton isOpen={hoverStates[2]} />
+        <NavbarIphoneSkeleton isOpen={hoverStates[3]} />
+        <NavbarWatchSkeleton isOpen={hoverStates[4]} />
+        <NavbarVisionSkeleton isOpen={hoverStates[5]} />
+        <NavbarAirPodsSkeleton isOpen={hoverStates[6]} />
+        <NavbarTVHomeSkeleton isOpen={hoverStates[7]} />
+        <NavbarEntertainmentSkeleton isOpen={hoverStates[8]} />
+        <NavbarAccessoriesSkeleton isOpen={hoverStates[9]} />
+        <NavbarSupportSkeleton isOpen={hoverStates[10]} />
       </div>
     </div>
   );
