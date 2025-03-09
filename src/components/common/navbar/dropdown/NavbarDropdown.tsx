@@ -70,7 +70,7 @@ const NavbarDropdown: React.FC<NavbarDropdown> = ({
     <div
       style={{ height: `${height}px` }}
       onMouseLeave={() => handleMouseLeave()}
-      className={`bg-primary w-full top-0 absolute z-20 overflow-hidden transition-all duration-200 ${
+      className={`bg-primary w-full top-0 absolute z-20 overflow-hidden transition-all duration-300 ${
         isHovered
           ? "open-navbar-item navbar-dropdown-open"
           : "close-navbar-item navbar-dropdown-close"
