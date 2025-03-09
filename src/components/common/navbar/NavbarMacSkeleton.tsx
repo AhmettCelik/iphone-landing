@@ -21,6 +21,12 @@ const NavbarMacContent: React.FC<NavbarMacContentProps> = ({ isOpen }) => {
               <Link href={item.href}>{item.content}</Link>
             </li>
           ))}
+          <li className="text-xs mt-4">
+            <Link href={"/"}>Compare Mac</Link>
+          </li>
+          <li className="text-xs">
+            <Link href={"/"}>Switch from PC to Mac</Link>
+          </li>
         </ul>
       </div>
       <div className="pr-11">

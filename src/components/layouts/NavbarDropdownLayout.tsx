@@ -30,7 +30,7 @@ const NavbarDropdownLayout: React.FC<NavbarDropdownLayoutProps> = ({
   if (!isVisible) return null;
 
   return (
-    <div className={`flex ${isOpen ? "block order-first" : ""}`}>
+    <div className={`flex text-tertiary ${isOpen ? "block order-first" : ""}`}>
       {children}
     </div>
   );

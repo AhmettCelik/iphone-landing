@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import NavbarStoreSkeleton from "../NavbarStoreSkeleton";
 import NavbarMacContent from "../NavbarMacSkeleton";
+import NavbarIpadSkeleton from "../NavbarIpadSkeleton";
 
 type NavbarDropdown = {
   hoverStates: boolean[];
@@ -28,7 +29,7 @@ const NavbarDropdown: React.FC<NavbarDropdown> = ({
     const timeout = setTimeout(() => {
       if (!contentRef.current) return;
       setHeight(contentRef.current.offsetHeight);
-    }, 150);
+    }, 230);
 
     return () => clearTimeout(timeout);
   }, [hoverStates]);
@@ -73,6 +74,7 @@ const NavbarDropdown: React.FC<NavbarDropdown> = ({
       >
         <NavbarStoreSkeleton isOpen={hoverStates[0]} />
         <NavbarMacContent isOpen={hoverStates[1]} />
+        <NavbarIpadSkeleton isOpen={hoverStates[2]} />
       </div>
     </div>
   );

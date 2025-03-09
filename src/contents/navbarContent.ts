@@ -268,3 +268,102 @@ export const navMacMoreItems: NavItem[] = [
     content: "Education",
   },
 ];
+
+export const navIpadExploreItems: NavItem[] = [
+  {
+    id: "1",
+    href: "/",
+    content: "Explore All iPad",
+  },
+  {
+    id: "2",
+    href: "/",
+    content: "iPad Pro",
+  },
+  {
+    id: "3",
+    href: "/",
+    content: "iPad Air",
+  },
+  {
+    id: "4",
+    href: "/",
+    content: "iPad",
+  },
+  {
+    id: "5",
+    href: "/",
+    content: "iPad mini",
+  },
+  {
+    id: "6",
+    href: "/",
+    content: "Apple Pencil",
+  },
+  {
+    id: "7",
+    href: "/",
+    content: "Keyboards",
+  },
+];
+
+export const navIpadShopItems: NavItem[] = [
+  {
+    id: "1",
+    href: "/",
+    content: "Shop iPad",
+  },
+  {
+    id: "2",
+    href: "/",
+    content: "iPad Accessories",
+  },
+  {
+    id: "3",
+    href: "/",
+    content: "Apple Trade In",
+  },
+  {
+    id: "4",
+    href: "/",
+    content: "Financing",
+  },
+];
+
+export const navIpadMoreItems: NavItem[] = [
+  {
+    id: "1",
+    href: "/",
+    content: "iPad Support",
+  },
+  {
+    id: "2",
+    href: "/",
+    content: "AppleCare+ for iPad",
+  },
+  {
+    id: "3",
+    href: "/",
+    content: "iPadOS 18",
+  },
+  {
+    id: "4",
+    href: "/",
+    content: "Apple Intelligence",
+  },
+  {
+    id: "5",
+    href: "/",
+    content: "Apps by Apple",
+  },
+  {
+    id: "6",
+    href: "/",
+    content: "iCloud+",
+  },
+  {
+    id: "7",
+    href: "/",
+    content: "Education",
+  },
+];
