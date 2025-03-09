@@ -107,6 +107,12 @@ svg:hover {
 .navbar-ul > *:nth-child(7) {
   animation-delay: 0.27s;
 }
+.navbar-ul > *:nth-child(8) {
+  animation-delay: 0.29s;
+}
+.navbar-ul > *:nth-child(9) {
+  animation-delay: 0.31s;
+}
 
 @keyframes openDown {
   0% {

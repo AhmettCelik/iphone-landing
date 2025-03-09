@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Navbar from "../common/Navbar";
-import NavbarDropdown from "../common/navbar/NavbarDropdown";
+import NavbarDropdown from "../common/navbar/dropdown/NavbarDropdown";
 import { navItems } from "@/contents/navbarContent";
 
 const Hero = () => {
