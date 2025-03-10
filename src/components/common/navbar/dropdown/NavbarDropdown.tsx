@@ -78,7 +78,7 @@ const NavbarDropdown: React.FC<NavbarDropdown> = ({
     >
       <div
         ref={contentRef}
-        className="pt-22 pb-20 text-tertiary font-roboto w-[64rem] mx-auto px-5 flex"
+        className="pt-22 pb-20 text-tertiary font-roboto max-w-[64rem] mx-auto px-5 flex"
       >
         <NavbarStoreSkeleton isOpen={hoverStates[0]} />
         <NavbarMacContent isOpen={hoverStates[1]} />

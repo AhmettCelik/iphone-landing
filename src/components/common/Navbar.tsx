@@ -27,7 +27,7 @@ const Navbar: React.FC<NavbarProps> = ({ setHoverStates, hoverStates }) => {
         hoverStates.some((state) => state) ? "navbar-open" : "navbar-close"
       } text-white/80 font-roboto tracking-wider font-light`}
     >
-      <div className="w-[64rem] mx-auto px-5 h-11">
+      <div className="max-w-[64rem] mx-auto px-5 h-11">
         <ul className="flex justify-between items-center h-full">
           <li
             onMouseEnter={() => handleIconMouseEnter()}

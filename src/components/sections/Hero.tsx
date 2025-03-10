@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import Navbar from "../common/Navbar";
 import NavbarDropdown from "../common/navbar/dropdown/NavbarDropdown";
 import { navItems } from "@/contents/navbarContent";
+import NavbarSubSection from "../Hero/NavbarSubSection";
+import TitaniumText from "../Hero/TitaniumText";
+import PhoneAnimation from "../Hero/PhoneAnimation";
 
 const Hero = () => {
   const [hoverStates, setHoverStates] = useState<boolean[]>(
@@ -10,25 +13,22 @@ const Hero = () => {
   );
 
   return (
-    <section className="h-screen w-full bg-[#1a1a1a]">
+    <section className="h-screen w-full bg-black flex flex-col">
       <div>
         <Navbar setHoverStates={setHoverStates} hoverStates={hoverStates} />
+        <NavbarSubSection />
         <NavbarDropdown
           setHoverStates={setHoverStates}
           hoverStates={hoverStates}
         />
       </div>
       <div
-        className={`transition-all duration-500 ${
-          hoverStates.some((state) => state) ? "blur-xs" : ""
+        className={`transition-discrete duration-500 flex-grow flex items-center justify-center relative ${
+          hoverStates.some((state) => state) ? "blur-sm" : ""
         }`}
       >
-        <div className="blur-target text-white">asdgasdgasdg</div>
-        <div className="blur-target text-white">asdgasdgasdg</div>
-        <div className="blur-target text-white">asdgasdgasdg</div>
-        <div className="blur-target text-white">asdgasdgasdg</div>
-        <div className="blur-target text-white">asdgasdgasdg</div>
-        <div className="blur-target text-white">asdgasdgasdg</div>
+        <TitaniumText />
+        <PhoneAnimation />
       </div>
     </section>
   );

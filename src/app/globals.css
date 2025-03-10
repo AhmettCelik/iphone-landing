@@ -4,9 +4,12 @@
   --color-primary: #161617;
   --color-secondary: #86868b;
   --color-tertiary: #e8e8ed;
+  --color-quaternary: #1d1d1f;
   --color-black-100: #100d25;
   --color-black-200: #090325;
   --color-white-100: #f3f3f3;
+  --color-white-200: #f5f5f7;
+  --color-blue-100: #2997ff;
 
   --breakpoint-laptop: 1441px;
   --breakpoint-smlaptop: 1069px;
@@ -178,4 +181,26 @@ svg:hover {
   animation: backNavColor 0.3s;
   animation-delay: 0.2s;
   animation-fill-mode: backwards;
+}
+
+.neon-text {
+  text-shadow: 0 0 5px #e5b894, 0 0 10px #e5b894, 0 0 50px #b77c5f,
+    0 0 100px #b77c5f, 0 0 150px #754a3a;
+}
+
+@keyframes fadeAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    font-size: 20rem;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-120px);
+    font-size: 17rem;
+  }
+}
+
+.titanium-text {
+  animation: fadeAppear 1s 1s cubic-bezier(0.12, 0.47, 0.14, 0.99) forwards;
 }
