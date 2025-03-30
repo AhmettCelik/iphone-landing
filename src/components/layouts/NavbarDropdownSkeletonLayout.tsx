@@ -1,4 +1,5 @@
 import NavbarDropdownLayout from "@/components/layouts/NavbarDropdownLayout";
+import { NavItem } from "@/interfaces/contentInterfaces";
 import Link from "next/link";
 
 type NavbarDropDownSkeletonLayoutProps = {

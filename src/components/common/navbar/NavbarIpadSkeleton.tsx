@@ -5,7 +5,6 @@ import {
   navIpadMoreItems,
   navIpadShopItems,
 } from "@/contents/navbarContent";
-import Link from "next/link";
 
 type NavbarIpadSkeletonProps = {
   isOpen: boolean;

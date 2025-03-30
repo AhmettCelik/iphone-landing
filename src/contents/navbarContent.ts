@@ -1,3 +1,5 @@
+import { NavItem } from "@/interfaces/contentInterfaces";
+
 export const navItems: NavItem[] = [
   {
     id: "1",
