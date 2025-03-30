@@ -203,4 +203,250 @@ svg:hover {
 
 .titanium-text {
   animation: fadeAppear 1s 1s cubic-bezier(0.12, 0.47, 0.14, 0.99) forwards;
+  font-size: clamp(3rem, 18vw, 20rem) !important;
+}
+
+/*Hamburger menu*/
+.burger {
+  position: relative;
+  width: 26px;
+  height: 22px;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+}
+
+.burger input {
+  display: none;
+}
+
+.burger span {
+  display: block;
+  position: absolute;
+  height: 1px;
+  width: 80%;
+  background: white;
+  border-radius: 9px;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+
+.burger span:nth-of-type(1) {
+  top: 25%;
+  transform-origin: left center;
+}
+
+.burger span:nth-of-type(2) {
+  top: 75%;
+  transform-origin: left center;
+  transform: translateY(-100%);
+}
+
+.burger input:checked ~ span:nth-of-type(1) {
+  transform: rotate(45deg);
+  top: 4px;
+  left: 5px;
+}
+
+.burger input:checked ~ span:nth-of-type(2) {
+  transform: rotate(-45deg);
+  top: 19px;
+  left: 5px;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(8px);
+  }
+  to {
+    opacity: 100;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes fadeSlideOut {
+  from {
+    opacity: 100;
+    transform: translateX(0px);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+}
+
+@keyframes dropdownOpenAnimation {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 100;
+  }
+}
+
+@keyframes dropdownCloseAnimation {
+  from {
+    transform: translateY(0px);
+    opacity: 100;
+  }
+  to {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+}
+
+.fadeSlideIn {
+  animation: fadeSlideIn 0.5s forwards;
+}
+
+.fadeSlideOut {
+  animation: fadeSlideOut 0.3s forwards;
+}
+
+.dropDownOpenAnimation {
+  animation: dropdownOpenAnimation 0.2s forwards;
+  animation-timing-function: cubic-bezier(0.5, 0.69, 0.65, 1);
+}
+
+.dropDownCloseAnimation {
+  animation: dropdownCloseAnimation 0.2s forwards;
+  animation-timing-function: cubic-bezier(0.5, 0.69, 0.65, 1);
+}
+
+@keyframes navbarUlFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes navbarUlFadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+
+@keyframes fadeInWithoutTransform {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutWithoutTransform {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.navbarUlFadeIn > * {
+  opacity: 0;
+  animation: navbarUlFadeIn 0.5s forwards;
+}
+
+.navbarUlFadeIn > *:nth-child(1) {
+  animation-delay: 0.15s;
+}
+.navbarUlFadeIn > *:nth-child(2) {
+  animation-delay: 0.17s;
+}
+.navbarUlFadeIn > *:nth-child(3) {
+  animation-delay: 0.19s;
+}
+.navbarUlFadeIn > *:nth-child(4) {
+  animation-delay: 0.21s;
+}
+.navbarUlFadeIn > *:nth-child(5) {
+  animation-delay: 0.23s;
+}
+.navbarUlFadeIn > *:nth-child(6) {
+  animation-delay: 0.25s;
+}
+.navbarUlFadeIn > *:nth-child(7) {
+  animation-delay: 0.27s;
+}
+.navbarUlFadeIn > *:nth-child(8) {
+  animation-delay: 0.29s;
+}
+.navbarUlFadeIn > *:nth-child(9) {
+  animation-delay: 0.31s;
+}
+.navbarUlFadeIn > *:nth-child(10) {
+  animation-delay: 0.33s;
+}
+.navbarUlFadeIn > *:nth-child(11) {
+  animation-delay: 0.35s;
+}
+
+.navbarUlFadeOut > * {
+  opacity: 0;
+  animation: navbarUlFadeOut 0.5s backwards;
+}
+
+.navbarUlFadeOut > *:nth-child(11) {
+  animation-delay: 0.15s;
+}
+.navbarUlFadeOut > *:nth-child(10) {
+  animation-delay: 0.17s;
+}
+.navbarUlFadeOut > *:nth-child(9) {
+  animation-delay: 0.19s;
+}
+.navbarUlFadeOut > *:nth-child(8) {
+  animation-delay: 0.21s;
+}
+.navbarUlFadeOut > *:nth-child(7) {
+  animation-delay: 0.23s;
+}
+.navbarUlFadeOut > *:nth-child(6) {
+  animation-delay: 0.25s;
+}
+.navbarUlFadeOut > *:nth-child(5) {
+  animation-delay: 0.27s;
+}
+.navbarUlFadeOut > *:nth-child(4) {
+  animation-delay: 0.29s;
+}
+.navbarUlFadeOut > *:nth-child(3) {
+  animation-delay: 0.31s;
+}
+.navbarUlFadeOut > *:nth-child(2) {
+  animation-delay: 0.33s;
+}
+.navbarUlFadeOut > *:nth-child(1) {
+  animation-delay: 0.35s;
+}
+
+.fadeOutWithoutTransform {
+  animation: fadeOutWithoutTransform 0.5s forwards;
+}
+
+.fadeInWithoutTransform {
+  animation: fadeInWithoutTransform 0.5s forwards;
+}
+
+.fadeInWithoutTransformForArrowIcon {
+  animation: fadeInWithoutTransform 0.5s forwards;
+}
+
+.fadeOutWithoutTransformForArrowIcon {
+  animation: fadeOutWithoutTransform 0.5s forwards;
 }
