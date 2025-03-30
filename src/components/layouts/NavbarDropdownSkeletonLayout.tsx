@@ -1,9 +1,4 @@
 import NavbarDropdownLayout from "@/components/layouts/NavbarDropdownLayout";
-import {
-  navMacExploreItems,
-  navMacMoreItems,
-  navMacShopItems,
-} from "@/contents/navbarContent";
 import Link from "next/link";
 
 type NavbarDropDownSkeletonLayoutProps = {

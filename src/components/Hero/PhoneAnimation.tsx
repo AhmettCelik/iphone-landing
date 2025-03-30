@@ -23,7 +23,7 @@ const PhoneAnimation = () => {
     );
 
     const loader = new GLTFLoader();
-    const ambientLight = new THREE.AmbientLight(0xffffff, 2);
+    // const ambientLight = new THREE.AmbientLight(0xffffff, 2);
     const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
 
     directionalLight.position.set(50, 0, 100);
