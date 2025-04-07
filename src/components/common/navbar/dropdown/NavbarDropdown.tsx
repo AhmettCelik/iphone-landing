@@ -17,6 +17,20 @@ import NavbarEntertainmentSkeleton from "../NavbarEntertainmentSkeleton";
 import NavbarAccessoriesSkeleton from "../NavbarAccessoriesSkeleton";
 import NavbarSupportSkeleton from "../NavbarSupportSkeleton";
 
+// It is a bit dangerous that we assume that elements are at a specific index here
+// If someone changes the order of the elements in the Navbar component this code will fails
+// Instead I would introduce an id for each navbar and store it like this
+// Additionally, it makes sense that only one item can be hovered at a time. So the props should look like this
+/**
+ * // In another file probably
+ * export type NavbarId = "store" | "mac" | "ipad" | "iphone" | "watch" | "vision" | "airpods" | "tvhome" | "entertainment" | "accessories" | "support";
+ * 
+ * type NavbarDropdown = {
+      hoveredItem: NavbarId | undefined;
+      setHoveredItem: (id: NavbarId) => void;
+    };
+ */
+
 type NavbarDropdown = {
   hoverStates: boolean[];
   setHoverStates: React.Dispatch<React.SetStateAction<boolean[]>>;
@@ -26,6 +40,9 @@ const NavbarDropdown: React.FC<NavbarDropdown> = ({
   hoverStates,
   setHoverStates,
 }) => {
+  // You don't need to store isVisible and isHovered in the state. You can do:
+  // const isHovered = hoverStates.some((state) => state);
+  // cons isVisible = !isHovered;
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(
     hoverStates.some((state) => state)
@@ -33,6 +50,8 @@ const NavbarDropdown: React.FC<NavbarDropdown> = ({
   const [height, setHeight] = useState(0);
   const contentRef = useRef<HTMLDivElement | null>(null);
 
+  // Curious why we need to set the height here but also inside the useEffect
+  // I would have used `useLayoutEffect` when setting the height instead
   useLayoutEffect(() => {
     const timeout = setTimeout(() => {
       if (!contentRef.current) return;
@@ -70,11 +89,10 @@ const NavbarDropdown: React.FC<NavbarDropdown> = ({
     <div
       style={{ height: `${height}px` }}
       onMouseLeave={() => handleMouseLeave()}
-      className={`bg-primary w-full top-0 absolute z-20 overflow-hidden transition-all duration-300 ${
-        isHovered
-          ? "open-navbar-item navbar-dropdown-open"
-          : "close-navbar-item navbar-dropdown-close"
-      } ${isHovered ? "block" : ""}`}
+      className={`bg-primary w-full top-0 absolute z-20 overflow-hidden transition-all duration-300 ${isHovered
+        ? "open-navbar-item navbar-dropdown-open"
+        : "close-navbar-item navbar-dropdown-close"
+        } ${isHovered ? "block" : ""}`}
     >
       <div
         ref={contentRef}

@@ -10,10 +10,12 @@ type NavbarProps = {
 const Navbar: React.FC<NavbarProps> = ({ setHoverStates, hoverStates }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showNavigations, setShowNavigations] = useState(false);
+  // I am not sure this state is necessary, can you instead show the arrow icon when `isProductsOpen` : you can add some animation in the CSS
   const [removeArrowFromDom, setRemoveArrowFromDom] = useState(true);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isFirstRender, setIsFirstRender] = useState(true);
 
+  // I would remove these effects: see https://react.dev/learn/you-might-not-need-an-effect
   useEffect(() => {
     if (isOpen) {
       setIsFirstRender(false);
@@ -58,16 +60,20 @@ const Navbar: React.FC<NavbarProps> = ({ setHoverStates, hoverStates }) => {
     setHoverStates((prevStates) => new Array(prevStates.length).fill(false));
   }, [setHoverStates]);
 
+  // Looks like there is some repetition in the `li > Link` elements
+  // You can create a separate component called something like `NavItem` that takes `handleIconMouseEnter` to avoid the repetition 
+  // Additionally, I would extract the SVGs into their own components + use meaningful names so it is easy to understand what they do
+  // For example, `HomeIcon`, `SearchIcon`, `CartIcon`, etc.
   return (
     <>
       <nav
-        className={`w-full bg-black smlaptop:block hidden ${
-          hoverStates.some((state) => state) ? "navbar-open" : "navbar-close"
-        } text-white/80 font-roboto tracking-wider font-light`}
+        className={`w-full bg-black smlaptop:block hidden ${hoverStates.some((state) => state) ? "navbar-open" : "navbar-close"
+          } text-white/80 font-roboto tracking-wider font-light`}
       >
         <div className="max-w-[64rem] mx-auto px-5 h-11">
           <ul className="flex justify-between items-center h-full">
             <li
+              // You can just do onMouseEnter={handleIconMouseEnter} here 
               onMouseEnter={() => handleIconMouseEnter()}
               className="h-full grid place-content-center text-xs"
             >
@@ -163,17 +169,15 @@ const Navbar: React.FC<NavbarProps> = ({ setHoverStates, hoverStates }) => {
       </nav>
       {/*mobile navbar*/}
       <nav
-        className={`w-full h-[44px] absolute z-50 smlaptop:hidden block transition-all duration-500 delay-300 ${
-          isOpen ? "h-screen bg-primary" : "bg-black"
-        } text-white/80 font-roboto tracking-wider font-light`}
+        className={`w-full h-[44px] absolute z-50 smlaptop:hidden block transition-all duration-500 delay-300 ${isOpen ? "h-screen bg-primary" : "bg-black"
+          } text-white/80 font-roboto tracking-wider font-light`}
       >
         <div className="max-w-[98rem] px-5 mx-auto flex justify-between items-center">
           <div
-            className={`relative ${
-              isOpen
-                ? "fadeOutWithoutTransform"
-                : !isFirstRender && "fadeInWithoutTransform"
-            } ${showNavigations && "hidden"}`}
+            className={`relative ${isOpen
+              ? "fadeOutWithoutTransform"
+              : !isFirstRender && "fadeInWithoutTransform"
+              } ${showNavigations && "hidden"}`}
           >
             <Link
               href={"/"}
@@ -200,18 +204,15 @@ const Navbar: React.FC<NavbarProps> = ({ setHoverStates, hoverStates }) => {
 
           <div className={`${showNavigations && "w-full"}`}>
             <div
-              className={`${
-                isOpen ? "min-h-[66px]" : "min-h-[44px]"
-              } transition-all duration-500 delay-300 flex items-center w-full ${
-                isProductsOpen ? "justify-between" : ""
-              }`}
+              className={`${isOpen ? "min-h-[66px]" : "min-h-[44px]"
+                } transition-all duration-500 delay-300 flex items-center w-full ${isProductsOpen ? "justify-between" : ""
+                }`}
             >
               <div
-                className={`${
-                  isOpen
-                    ? "fadeOutWithoutTransform"
-                    : !isFirstRender && "fadeInWithoutTransform"
-                } ${showNavigations && "hidden"}`}
+                className={`${isOpen
+                  ? "fadeOutWithoutTransform"
+                  : !isFirstRender && "fadeInWithoutTransform"
+                  } ${showNavigations && "hidden"}`}
               >
                 <div className="flex items-center justify-center gap-2 font-primary font-bold text-mid mr-2">
                   <Link
@@ -258,11 +259,10 @@ const Navbar: React.FC<NavbarProps> = ({ setHoverStates, hoverStates }) => {
               </div>
               <div
                 onClick={() => setIsProductsOpen(false)}
-                className={`transition-all duration-500 opacity-0 ${
-                  isProductsOpen
-                    ? "fadeInWithoutTransformForArrowIcon"
-                    : "fadeOutWithoutTransformForArrowIcon"
-                } ${removeArrowFromDom ? "hidden" : "block"} `}
+                className={`transition-all duration-500 opacity-0 ${isProductsOpen
+                  ? "fadeInWithoutTransformForArrowIcon"
+                  : "fadeOutWithoutTransformForArrowIcon"
+                  } ${removeArrowFromDom ? "hidden" : "block"} `}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -276,9 +276,8 @@ const Navbar: React.FC<NavbarProps> = ({ setHoverStates, hoverStates }) => {
                 </svg>
               </div>
               <label
-                className={`burger w-full ml-auto ${
-                  isOpen ? "opacity-100" : "opacity-50"
-                }`}
+                className={`burger w-full ml-auto ${isOpen ? "opacity-100" : "opacity-50"
+                  }`}
                 htmlFor="burger"
               >
                 <input
@@ -292,13 +291,11 @@ const Navbar: React.FC<NavbarProps> = ({ setHoverStates, hoverStates }) => {
             </div>
             <div className={`font-semibold text-4xl ml-8`}>
               <ul
-                className={`absolute flex flex-col gap-4 transition-all duration-300 ${
-                  showNavigations ? "block" : "hidden"
-                } ${isOpen ? "navbarUlFadeIn" : "navbarUlFadeOut"} ${
-                  isProductsOpen
+                className={`absolute flex flex-col gap-4 transition-all duration-300 ${showNavigations ? "block" : "hidden"
+                  } ${isOpen ? "navbarUlFadeIn" : "navbarUlFadeOut"} ${isProductsOpen
                     ? "opacity-0 -translate-x-4"
                     : "opacity-100 translate-x-0"
-                }`}
+                  }`}
               >
                 {navItems.map((item) => (
                   <li onClick={() => setIsProductsOpen(true)} key={item.id}>
